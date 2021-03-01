@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "infium",
+  "version": "${version}",
+  "name": "Infium",
+  "description": "Small mod that introduces the infium material and tools built with it",
+  "authors": [
+    "algoram"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/infium/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.algoram.infium.client.InfiumClient"
+    ],
+    "main": [
+      "io.github.algoram.infium.Infium"
+    ]
+  },
+  "mixins": [
+    "infium.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.2",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
