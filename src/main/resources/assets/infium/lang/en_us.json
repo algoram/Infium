@@ -2,5 +2,10 @@
   "item.infium.infium": "Infium",
   "item.infium.infium_ore": "Infium Ore",
   "block.infium.infium_ore": "Infium Ore",
-  "block.infium.infium_block": "Infium Block"
+  "block.infium.infium_block": "Infium Block",
+  "item.infium.infium_shovel": "Infium Shovel",
+  "item.infium.infium_pickaxe": "Infium Pickaxe",
+  "item.infium.infium_axe": "Infium Axe",
+  "item.infium.infium_hoe": "Infium Hoe",
+  "item.infium.infium_sword": "Infium Sword"
 }

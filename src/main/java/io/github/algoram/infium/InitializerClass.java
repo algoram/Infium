@@ -32,6 +32,13 @@ public class InitializerClass {
     // block
     public static final Block INFIUM_BLOCK = new Block(FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK));
 
+    // tools
+    public static ToolItem INFIUM_SHOVEL =  new ShovelItem(InfiumToolMaterial.INSTANCE,         1.5f,   -3.0f, new Item.Settings().group(ItemGroup.TOOLS));
+    public static ToolItem INFIUM_SWORD =   new SwordItem(InfiumToolMaterial.INSTANCE,          3,      -2.4f, new Item.Settings().group(ItemGroup.COMBAT));
+    public static ToolItem INFIUM_PICKAXE = new InfiumPickaxeItem(InfiumToolMaterial.INSTANCE,  1,      -2.8f, new Item.Settings().group(ItemGroup.TOOLS));
+    public static ToolItem INFIUM_HOE =     new InfiumHoeItem(InfiumToolMaterial.INSTANCE,      7,      -3.2f, new Item.Settings().group(ItemGroup.TOOLS));
+    public static ToolItem INFIUM_AXE =     new InfiumAxeItem(InfiumToolMaterial.INSTANCE,      7.0f,   -3.2f, new Item.Settings().group(ItemGroup.TOOLS));
+
     public static void initialize() {
         // register basic item
         Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium"), INFIUM_ITEM);
@@ -48,6 +55,13 @@ public class InitializerClass {
         // register block
         Registry.register(Registry.BLOCK, new Identifier(Infium.modId, "infium_block"), INFIUM_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_block"), new BlockItem(INFIUM_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+
+        // register tools
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_shovel"),     INFIUM_SHOVEL);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_sword"),      INFIUM_SWORD);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_pickaxe"),    INFIUM_PICKAXE);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_axe"),        INFIUM_AXE);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_hoe"),        INFIUM_HOE);
     }
 
 }
