@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -39,6 +40,13 @@ public class InitializerClass {
     public static ToolItem INFIUM_HOE =     new InfiumHoeItem(InfiumToolMaterial.INSTANCE,      7,      -3.2f, new Item.Settings().group(ItemGroup.TOOLS));
     public static ToolItem INFIUM_AXE =     new InfiumAxeItem(InfiumToolMaterial.INSTANCE,      7.0f,   -3.2f, new Item.Settings().group(ItemGroup.TOOLS));
 
+    // armor
+    public static final ArmorMaterial infiumArmorMaterial = new InfiumArmorMaterial();
+    public static final Item INFIUM_HELMET =        new ArmorItem(infiumArmorMaterial, EquipmentSlot.HEAD,  new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item INFIUM_CHESTPLATE =    new ArmorItem(infiumArmorMaterial, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item INFIUM_LEGGINGS =      new ArmorItem(infiumArmorMaterial, EquipmentSlot.LEGS,  new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item INFIUM_BOOTS =         new ArmorItem(infiumArmorMaterial, EquipmentSlot.FEET,  new Item.Settings().group(ItemGroup.COMBAT));
+
     public static void initialize() {
         // register basic item
         Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium"), INFIUM_ITEM);
@@ -50,7 +58,8 @@ public class InitializerClass {
         // register ore generation
         RegistryKey<ConfiguredFeature<?, ?>> oreInfiumOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(Infium.modId, "ore_infium_overworld"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreInfiumOverworld.getValue(), ORE_INFIUM_OVERWORLD);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreInfiumOverworld);
+        //noinspection deprecation
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreInfiumOverworld); // added intellij warning suppression for this line
 
         // register block
         Registry.register(Registry.BLOCK, new Identifier(Infium.modId, "infium_block"), INFIUM_BLOCK);
@@ -62,6 +71,12 @@ public class InitializerClass {
         Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_pickaxe"),    INFIUM_PICKAXE);
         Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_axe"),        INFIUM_AXE);
         Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_hoe"),        INFIUM_HOE);
+
+        // register armor
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_helmet"),     INFIUM_HELMET);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_chestplate"), INFIUM_CHESTPLATE);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_leggings"),   INFIUM_LEGGINGS);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_boots"),      INFIUM_BOOTS);
     }
 
 }

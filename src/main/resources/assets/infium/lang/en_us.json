@@ -7,5 +7,9 @@
   "item.infium.infium_pickaxe": "Infium Pickaxe",
   "item.infium.infium_axe": "Infium Axe",
   "item.infium.infium_hoe": "Infium Hoe",
-  "item.infium.infium_sword": "Infium Sword"
+  "item.infium.infium_sword": "Infium Sword",
+  "item.infium.infium_helmet": "Infium Helmet",
+  "item.infium.infium_chestplate": "Infium Chestplate",
+  "item.infium.infium_leggings": "Infium Leggings",
+  "item.infium.infium_boots": "Infium Boots"
 }
