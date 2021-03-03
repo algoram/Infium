@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "infium:block/infium_block"
+    }
+  }
+}

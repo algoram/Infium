@@ -3,13 +3,8 @@ package io.github.algoram.infium;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Material;
-import net.minecraft.block.OreBlock;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.block.*;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -34,6 +29,9 @@ public class InitializerClass {
             .spreadHorizontally()
             .repeat(20);
 
+    // block
+    public static final Block INFIUM_BLOCK = new Block(FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK));
+
     public static void initialize() {
         // register basic item
         Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium"), INFIUM_ITEM);
@@ -46,6 +44,10 @@ public class InitializerClass {
         RegistryKey<ConfiguredFeature<?, ?>> oreInfiumOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(Infium.modId, "ore_infium_overworld"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreInfiumOverworld.getValue(), ORE_INFIUM_OVERWORLD);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreInfiumOverworld);
+
+        // register block
+        Registry.register(Registry.BLOCK, new Identifier(Infium.modId, "infium_block"), INFIUM_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(Infium.modId, "infium_block"), new BlockItem(INFIUM_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     }
 
 }
